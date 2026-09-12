@@ -64,10 +64,11 @@ To preview locally, open `index.html` in a browser; no server is needed.
 
 ## Still to do
 
-- Add `papers/Elizans-draft.pdf` (the draft article).
-- Add `papers/alsmith-2021-the-structure-of-egocentric-space.pdf` if wanted
-  (the file is large; a smaller export would be better).
 - Replace `assets/adrian-alsmith.jpg` with a higher-resolution portrait
   (the current one is 160×160 px).
-- Check the dates in the bio (ESPP programme chair) and the status of the
-  Locke paper.
+- Add PDFs for the entries that have none yet: "Distal touch and the
+  sensational model" (2023), "Curved sixth fingers" (2022), the vestibular
+  paper (2021), "What is the body schema?" (2020), and the Cognition paper
+  (2020). Check the volume and page numbers of the vestibular paper.
+- Decide whether publisher-version PDFs stay on the site or are swapped for
+  accepted manuscripts.
