@@ -11,9 +11,9 @@ the HTML in a text editor and pushing to GitHub.
 | `index.html` | About page: short bio, contact, research themes |
 | `publications.html` | Publications list, newest first, with PDF and DOI links |
 | `work-in-progress.html` | Drafts, current projects, the GraspingAI collaboration |
-| `style.css` | All styling. Colours are set once in the `:root` block at the top |
+| `style.css` | All styling. Colours and font stacks are set once in the `:root` block near the top |
 | `papers/` | PDFs linked from the site |
-| `assets/` | Images (currently one small portrait) |
+| `assets/` | The portrait and, in `assets/fonts/`, the two self-hosted typefaces (Literata and Inter, SIL Open Font License) |
 | `.nojekyll` | Tells GitHub Pages to serve the files as they are |
 
 ## Publishing (one-off)

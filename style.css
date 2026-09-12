@@ -2,26 +2,62 @@
    Adrian Alsmith — site stylesheet
    One file, no build step. Colours live in the :root block; change
    them there and every page follows.
+
+   Type: Literata (serif) for running text; Inter (sans) for the name,
+   navigation, headings, labels and links. Both are self-hosted in
+   assets/fonts/ under the SIL Open Font License.
    ------------------------------------------------------------------ */
 
+@font-face {
+  font-family: "Literata";
+  src: url("assets/fonts/literata.woff2") format("woff2");
+  font-weight: 200 900;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Literata";
+  src: url("assets/fonts/literata-italic.woff2") format("woff2");
+  font-weight: 200 900;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Inter";
+  src: url("assets/fonts/inter.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Inter";
+  src: url("assets/fonts/inter-italic.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: italic;
+  font-display: swap;
+}
+
 :root {
-  --bg: #fbfaf7;          /* page background (warm off-white) */
-  --ink: #1f1f1d;         /* body text */
-  --muted: #6b6a66;       /* secondary text: dates, venues, captions */
-  --rule: #e3e0d8;        /* hairlines */
-  --accent: #7a3e2e;      /* links, small headings (muted brick) */
-  --accent-hover: #4d251b;
+  --bg: #faf7f0;          /* page background (cream) */
+  --ink: #24211c;         /* body text (warm near-black) */
+  --muted: #75705f;       /* secondary text: dates, venues, captions */
+  --rule: #e6e0d0;        /* hairlines */
+  --accent: #34506e;      /* links (slate blue) */
+  --accent-hover: #1e3149;
   --measure: 40rem;       /* max text width ≈ 70 characters */
+
+  --serif: "Literata", Charter, "Iowan Old Style", Georgia, serif;
+  --sans: "Inter", -apple-system, "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --bg: #17181a;
-    --ink: #e6e3dc;
-    --muted: #a09d96;
-    --rule: #33353a;
-    --accent: #d9a08a;
-    --accent-hover: #f0c9b8;
+    --bg: #1b1a17;
+    --ink: #e8e4da;
+    --muted: #a39d8e;
+    --rule: #36332c;
+    --accent: #9fb8d6;
+    --accent-hover: #c7d8ec;
   }
 }
 
@@ -33,9 +69,8 @@ body {
   margin: 0;
   background: var(--bg);
   color: var(--ink);
-  font-family: Charter, "Iowan Old Style", "Palatino Linotype", Palatino,
-               Georgia, "Times New Roman", serif;
-  line-height: 1.55;
+  font-family: var(--serif);
+  line-height: 1.6;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -56,12 +91,13 @@ header.site {
   padding-bottom: 1rem;
   margin-bottom: 2.5rem;
   border-bottom: 1px solid var(--rule);
+  font-family: var(--sans);
 }
 
 header.site .name {
-  font-size: 1.15rem;
+  font-size: 1.05rem;
   font-weight: 600;
-  letter-spacing: 0.01em;
+  letter-spacing: -0.01em;
   color: var(--ink);
   text-decoration: none;
 }
@@ -82,38 +118,49 @@ footer.site {
   padding-top: 1rem;
   border-top: 1px solid var(--rule);
   color: var(--muted);
-  font-size: 0.85rem;
+  font-family: var(--sans);
+  font-size: 0.8rem;
 }
 footer.site p { margin: 0.3rem 0; }
 
 /* ---- type ------------------------------------------------------ */
 
 h1 {
-  font-size: 1.8rem;
+  font-family: var(--sans);
+  font-size: 1.5rem;
   font-weight: 600;
+  letter-spacing: -0.015em;
   line-height: 1.2;
   margin: 0 0 1.25rem;
 }
 
 h2 {
-  font-size: 1.05rem;
+  font-family: var(--sans);
+  font-size: 0.75rem;
   font-weight: 600;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--accent);
+  color: var(--muted);
   margin: 2.75rem 0 0.9rem;
 }
 h2:first-of-type { margin-top: 0; }
 
 h3 {
-  font-size: 1.05rem;
+  font-family: var(--sans);
+  font-size: 1rem;
   font-weight: 600;
+  letter-spacing: -0.01em;
   margin: 1.6rem 0 0.4rem;
 }
 
 p { margin: 0 0 1rem; }
 
-a { color: var(--accent); text-decoration: underline; text-underline-offset: 0.18em; text-decoration-thickness: 0.06em; }
+a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 0.18em;
+  text-decoration-thickness: 0.06em;
+}
 a:hover { color: var(--accent-hover); }
 
 .muted { color: var(--muted); }
@@ -140,27 +187,25 @@ a:hover { color: var(--accent-hover); }
 }
 @media (min-width: 560px) { .intro img.portrait { order: 0; } }
 
-.contact { list-style: none; padding: 0; margin: 0 0 1rem; }
+.contact { list-style: none; padding: 0; margin: 0 0 1rem; font-family: var(--sans); }
 .contact li { margin: 0.15rem 0; }
 
 /* ---- lists of work --------------------------------------------- */
 
 ul.works { list-style: none; padding: 0; margin: 0; }
-ul.works li {
-  margin: 0 0 1.1rem;
-  padding-left: 0;
-}
+ul.works li { margin: 0 0 1.1rem; }
 ul.works .title { font-weight: 600; }
 ul.works .venue { color: var(--muted); }
-ul.works .links { font-size: 0.9rem; white-space: nowrap; }
+ul.works .links { font-family: var(--sans); font-size: 0.8rem; white-space: nowrap; }
 ul.works .links a { margin-right: 0.6rem; }
 ul.works .note { display: block; color: var(--muted); font-size: 0.92rem; margin-top: 0.2rem; }
 
 .year {
   display: block;
+  font-family: var(--sans);
   color: var(--muted);
-  font-size: 0.85rem;
-  letter-spacing: 0.06em;
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
   margin: 1.8rem 0 0.6rem;
 }
 .year:first-of-type { margin-top: 0; }
