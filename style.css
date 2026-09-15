@@ -1,0 +1,224 @@
+/* ------------------------------------------------------------------
+   Adrian Alsmith — site stylesheet
+   One file, no build step. Colours live in the :root block; change
+   them there and every page follows.
+
+   Type: Literata (serif) for running text; Inter (sans) for the name,
+   navigation, headings, labels and links. Both are self-hosted in
+   assets/fonts/ under the SIL Open Font License.
+   ------------------------------------------------------------------ */
+
+@font-face {
+  font-family: "Literata";
+  src: url("assets/fonts/literata.woff2") format("woff2");
+  font-weight: 200 900;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Literata";
+  src: url("assets/fonts/literata-italic.woff2") format("woff2");
+  font-weight: 200 900;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Inter";
+  src: url("assets/fonts/inter.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Inter";
+  src: url("assets/fonts/inter-italic.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: italic;
+  font-display: swap;
+}
+
+:root {
+  --bg: #faf7f0;          /* page background (cream) */
+  --ink: #24211c;         /* body text (warm near-black) */
+  --muted: #75705f;       /* secondary text: dates, venues, captions */
+  --rule: #e6e0d0;        /* hairlines */
+  --accent: #34506e;      /* links (slate blue) */
+  --accent-hover: #1e3149;
+  --measure: 40rem;       /* max text width ≈ 70 characters */
+
+  --serif: "Literata", Charter, "Iowan Old Style", Georgia, serif;
+  --sans: "Inter", -apple-system, "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #1b1a17;
+    --ink: #e8e4da;
+    --muted: #a39d8e;
+    --rule: #36332c;
+    --accent: #9fb8d6;
+    --accent-hover: #c7d8ec;
+  }
+}
+
+* { box-sizing: border-box; }
+
+html { font-size: 106.25%; }  /* 17px base */
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--serif);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ---- layout ---------------------------------------------------- */
+
+.wrap {
+  max-width: var(--measure);
+  margin: 0 auto;
+  padding: 2.5rem 1.25rem 4rem;
+}
+
+header.site {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.5rem 1.5rem;
+  padding-bottom: 1rem;
+  margin-bottom: 2.5rem;
+  border-bottom: 1px solid var(--rule);
+  font-family: var(--sans);
+}
+
+header.site .name {
+  font-size: 1.05rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  text-decoration: none;
+}
+
+nav.main a {
+  margin-left: 1.1rem;
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 0.95rem;
+}
+nav.main a:first-child { margin-left: 0; }
+nav.main a:hover,
+nav.main a[aria-current="page"] { color: var(--accent); }
+nav.main a[aria-current="page"] { text-decoration: underline; text-underline-offset: 0.25em; }
+
+footer.site {
+  margin-top: 4rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--rule);
+  color: var(--muted);
+  font-family: var(--sans);
+  font-size: 0.8rem;
+}
+footer.site p { margin: 0.3rem 0; }
+
+/* ---- type ------------------------------------------------------ */
+
+h1 {
+  font-family: var(--sans);
+  font-size: 1.5rem;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  line-height: 1.2;
+  margin: 0 0 1.25rem;
+}
+
+h2 {
+  font-family: var(--sans);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin: 2.75rem 0 0.9rem;
+}
+h2:first-of-type { margin-top: 0; }
+
+/* one-page layout: each block of the page is a <section> with an id the
+   header navigation jumps to */
+main > section { margin-top: 2.75rem; }
+main > section:first-child { margin-top: 0; }
+main > section h2 { margin-top: 0; }
+main > section { scroll-margin-top: 1.5rem; }
+html { scroll-behavior: smooth; }
+
+h3 {
+  font-family: var(--sans);
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  margin: 1.6rem 0 0.4rem;
+}
+
+p { margin: 0 0 1rem; }
+
+a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 0.18em;
+  text-decoration-thickness: 0.06em;
+}
+a:hover { color: var(--accent-hover); }
+
+.muted { color: var(--muted); }
+.small { font-size: 0.9rem; }
+
+/* ---- home page ------------------------------------------------- */
+
+.intro {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  align-items: start;
+}
+@media (min-width: 560px) {
+  .intro { grid-template-columns: 1fr 9rem; }
+}
+
+.intro img.portrait {
+  width: 9rem;
+  height: 9rem;
+  object-fit: cover;
+  border-radius: 4px;
+  order: -1;
+}
+@media (min-width: 560px) { .intro img.portrait { order: 0; } }
+
+.contact { list-style: none; padding: 0; margin: 0 0 1rem; font-family: var(--sans); }
+.contact li { margin: 0.15rem 0; }
+
+/* ---- lists of work --------------------------------------------- */
+
+ul.works { list-style: none; padding: 0; margin: 0; }
+ul.works li { margin: 0 0 1.1rem; }
+ul.works .title { font-weight: 600; }
+ul.works .venue { color: var(--muted); }
+ul.works .links { font-family: var(--sans); font-size: 0.8rem; white-space: nowrap; }
+ul.works .links a { margin-right: 0.6rem; }
+ul.works .note { display: block; color: var(--muted); font-size: 0.92rem; margin-top: 0.2rem; }
+
+.year {
+  display: block;
+  font-family: var(--sans);
+  color: var(--muted);
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  margin: 1.8rem 0 0.6rem;
+}
+.year:first-of-type { margin-top: 0; }
+
+/* Research themes on the home page */
+.theme { margin-bottom: 1.8rem; }
+.theme h3 { margin-top: 0; }
+.theme p:last-child { margin-bottom: 0; }
