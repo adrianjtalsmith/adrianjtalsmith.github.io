@@ -60,7 +60,7 @@ Intro line (grey): Almost everything is available below. Where the PDF is the pu
 
 #### DRAFTS
 
-**Elizan thought & generative artificial systems.** Draft, 15 September 2026. \[PDF\] \> Note: Please do not cite without permission. Write to me if you would like the latest version.
+**Elizan thought & generative artificial systems.** Draft, 21 September 2026. \[PDF\] \> Note: Please do not cite without permission. Write to me if you would like the latest version.
 
 ### FORTHCOMING
 
