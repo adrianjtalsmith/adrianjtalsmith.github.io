@@ -66,6 +66,8 @@ Intro line (grey): Almost everything is available below. Where the PDF is the pu
 
 **The concept of body ownership.** *Locke Studies*, special issue edited by José Luis Bermúdez.
 
+#### 2026
+
 **Introspection and bodily awareness.** In A. Giustina (ed.), *The Routledge Handbook of Introspection*. Routledge. \[PDF (proofs)\]
 
 #### 2025
